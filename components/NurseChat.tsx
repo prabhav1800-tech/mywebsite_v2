@@ -48,7 +48,7 @@ function getApiCandidates() {
     "http://127.0.0.1:8001/api/v1",
   ].filter((v): v is string => Boolean(v));
 
-  return [...new Set(candidates)].map((base) => base.replace(/\/$/, ""));
+  return Array.from(new Set(candidates)).map((base) => base.replace(/\/$/, ""));
 }
 
 async function resolveApiBase() {
@@ -448,3 +448,5 @@ export default function NurseChat() {
     </div>
   );
 }
+
+
