@@ -42,11 +42,20 @@ declare global {
 const ENV_API_BASE = process.env.NEXT_PUBLIC_NURSE_API_BASE;
 
 function getApiCandidates() {
-  const candidates = [
-    ENV_API_BASE,
-    "http://127.0.0.1:8000/api/v1",
-    "http://127.0.0.1:8001/api/v1",
-  ].filter((v): v is string => Boolean(v));
+  const candidates = [ENV_API_BASE].filter((v): v is string => Boolean(v));
+
+  if (typeof window !== "undefined") {
+    const host = window.location.hostname;
+    const isLocalHost = host === "localhost" || host === "127.0.0.1";
+
+    if (isLocalHost) {
+      candidates.push("http://127.0.0.1:8000/api/v1", "http://127.0.0.1:8001/api/v1");
+    }
+
+    if (host === "zeptai.com" || host.endsWith(".zeptai.com")) {
+      candidates.push("https://api.zeptai.com/api/v1");
+    }
+  }
 
   return Array.from(new Set(candidates)).map((base) => base.replace(/\/$/, ""));
 }
@@ -448,5 +457,6 @@ export default function NurseChat() {
     </div>
   );
 }
+
 
 
