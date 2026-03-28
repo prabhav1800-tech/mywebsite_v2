@@ -6,17 +6,17 @@ import { Globe, Mail } from "lucide-react";
 const team = [
   {
     name: "Prabhav Kumar",
-    role: "Co-Founder & Lead Engineer",
+    role: "C & Lead Engineer",
     image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Prabhav&backgroundColor=b6e3f4",
   },
   {
     name: "Shivam Kumar",
-    role: "Co-Founder & AI Researcher",
+    role: "Co-Founder & Researcher",
     image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Shivam&backgroundColor=c0aede",
   },
   {
     name: "Diwakar",
-    role: "Co-Founder & Product Lead",
+    role: "Co-Founder & Clinical Specialist",
     image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Diwakar&backgroundColor=ffdfbf",
   }
 ];
